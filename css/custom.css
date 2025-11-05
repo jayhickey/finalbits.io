@@ -55,6 +55,19 @@ a, a:visited {
   text-align: start;
 }
 
+ul li {
+  margin-bottom: 0.3em;
+}
+
+.row.link {
+  flex-direction: column;
+}
+
+.row.link > p {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+}
+
 .row.link > a {
   font-family: var(--mono-font);
   margin: 10px;
