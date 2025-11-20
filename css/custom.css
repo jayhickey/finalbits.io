@@ -31,6 +31,10 @@ h1 {
   line-height: 1.15;
 }
 
+#teams-partnered {
+  font-size: large;
+}
+
 p {
   font-weight: 400;
 }
@@ -71,6 +75,41 @@ ul li {
 .row.link > a {
   font-family: var(--mono-font);
   margin: 10px;
+}
+
+.row.clients-header p {
+  text-align: center;
+}
+
+.row.clients {
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+.client-logo {
+  width: 100px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  filter: grayscale(100%) opacity(0.4);
+}
+
+.row.clients a {
+  text-decoration: none;
+  display: inline-block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.row.clients a:hover .client-logo {
+  opacity: 0.7;
 }
 
 .row.profile-pic {
