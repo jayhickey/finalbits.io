@@ -7,7 +7,7 @@
   <base target="_blank" />
 
   <title class="pageTitle"></title>
-  <meta name="description" content="Quickly capture quotes. Add them to your home screen to stay inspired. Share favorites with others." />
+  <meta name="description" content="Quotify is your personal library for the words that move you. Save quotes from books, articles, podcasts and conversations, then see them again every day on your Home Screen and Lock Screen." />
 
   <link rel="shortcut icon" href="./assets/appicon.png" />
 
@@ -22,6 +22,59 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="./main.css" />
+  <style>
+    /* Quotify 2.0 additions. Everything else comes from main.css. */
+    .imageWrapper{height:auto}
+    /* Hero: PD's wide hero-pair (16:10) in a rounded card; text column on the right */
+    .imageWrapper .container{grid-template-rows:115px auto auto auto;grid-template-areas:"h h h h h h h h h h h h" "p p p p p p p i i i i i" "c c c c c c c c c c c c" "f f f f f f f f f f f f"}
+    .iphonePreview.heroPair{margin-top:90px;align-self:start}
+    .heroImage{display:block;width:100%;height:auto;aspect-ratio:16/10;border-radius:28px;box-shadow:0 20px 60px rgba(0,122,255,0.12)}
+    .imageWrapper .appInfo{padding-top:90px}
+    .newBadge{display:inline-block;margin-top:30px;padding:7px 16px;border-radius:16px;background:#363636;color:#fff;font-size:1.5rem;font-weight:600;line-height:1.4;letter-spacing:.02em}
+    .newBadge i{color:#007aff;margin-right:6px}
+    .appDescriptionContainer{margin-top:24px}
+    .v2Content{grid-area:c;margin-top:110px}
+    .spotlights{display:flex;flex-direction:column;gap:70px;margin:10px 0 100px}
+    .spotlight{display:grid;grid-template-columns:7fr 5fr;gap:50px;align-items:center}
+    .spotlight:nth-child(even){grid-template-columns:5fr 7fr}
+    .spotlight:nth-child(even) .spotlightImage{order:2}
+    .spotlightImage img{display:block;width:100%;height:auto;aspect-ratio:4/3;border-radius:24px}
+    .spotlightTag{display:inline-block;color:#007aff;font-size:1.5rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+    .spotlightText h3{color:#fff;font-size:3rem;line-height:1.2}
+    .spotlightText p{color:#999;font-size:2.2rem;line-height:1.45;margin-top:12px}
+    .spotlightText p.spotlightNote{color:#666;font-size:1.7rem}
+    .allFeaturesTitle{margin-top:0;margin-bottom:44px}
+    .sectionTitle{color:#fff;font-size:3rem;margin:0 0 14px}
+    .sectionIntro{color:#666;font-size:2rem;line-height:1.5;max-width:780px;margin:0 0 50px}
+    .v2Content .features{margin-bottom:0}
+    .screenshotsSection{margin-top:90px}
+    .screenshotRow{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+    .screenshotRow figure{margin:0}
+    .screenshotRow img{display:block;width:100%;height:auto;aspect-ratio:1320/2868;object-fit:cover;border-radius:18px;background:#1c1c1e}
+    .screenshotRow figcaption{color:#666;font-size:1.5rem;line-height:1.4;margin-top:12px;text-align:center}
+    @media only screen and (max-width: 992px){
+      .imageWrapper .container{grid-template-rows:115px auto auto auto auto;grid-template-areas:"h h h h h h h h h h h h" "i i i i i i i i i i i i" "p p p p p p p p p p p p" "c c c c c c c c c c c c" "f f f f f f f f f f f f"}
+      .imageWrapper .appInfo{padding-top:40px}
+      .iphonePreview.heroPair{display:block;margin-top:44px;padding:0 15px}
+      .heroImage{border-radius:20px;aspect-ratio:6/5;object-fit:cover}
+      .v2Content{margin-top:80px}
+      .spotlights{gap:50px;margin-bottom:70px;padding:0 15px}
+      .spotlight,.spotlight:nth-child(even){grid-template-columns:1fr;gap:22px}
+      .spotlight:nth-child(even) .spotlightImage{order:0}
+      .spotlightImage img{border-radius:18px}
+      .spotlightText{text-align:center}
+      .spotlightText h3{font-size:2.6rem}
+      .spotlightText p{font-size:2rem}
+      .newBadge{text-align:center;border-radius:18px;margin-left:15px;margin-right:15px}
+      .sectionTitle,.sectionIntro{text-align:center;margin-left:auto;margin-right:auto}
+      .sectionTitle{padding:0 15px}.sectionIntro{padding:0 15px}
+      .screenshotsSection{margin-top:60px}
+      .screenshotRow{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 15px 10px;gap:16px}
+      .screenshotRow figure{flex:0 0 200px;scroll-snap-align:center}
+      .v2Content{margin-top:20px}
+    }
+    @media only screen and (max-width: 768px){.imageWrapper .container{grid-template-rows:80px auto auto auto auto}}
+  </style>
 </head>
 
 
@@ -52,13 +105,13 @@
   </div>
   <nav class="scroll">
     <ul>
-         <li><a href="https://finalbits.io/downloads/quotify/presskit.zip">Press Kit</a></li>
+         <li><a href="/quotify/press/" target="_self">Press Kit</a></li>
 
     </ul>
   </nav>
 </header>
 
-          <div class="iphonePreview">
+          <div class="iphonePreview heroPair">
             <div class="videoContainer hidden">
               <video
                 class="screenvideo"
@@ -67,54 +120,7 @@
               ></video>
             </div>
 
-            <img class="iphoneScreen hidden" src="" alt="" />
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <script>
-            $(function() {
-                $(".iphoneScreen").attr('src', './assets/screenshot/yourscreenshot.png');
-                $(".iphoneScreen").removeClass("hidden");
-                console.log("./assets/screenshot/yourscreenshot.png");
-            });
-        </script>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-    
-
-    
-
-    
-
+            <img class="heroImage" src="./assets/2.0/hero-pair.jpg" srcset="./assets/2.0/hero-pair.jpg 1x, ./assets/2.0/hero-pair@2x.jpg 2x" width="1200" height="750" alt="Quotify on iPhone: a library of quotes from books, articles, podcasts and TV, next to a Home Screen with Quotify widgets" />
           </div>
           <div class="appInfo">
             <div class="appIconShadow">
@@ -139,19 +145,60 @@
             <div class="appNamePriceContainer">
               <h1 class="appName">Quotify</h1>
             </div>
+            <div class="newBadge"><i class="fas fa-star"></i>New in Quotify 2.0: Smart Photo to Quote (Premium) and a fresh new design</div>
             <div class="appDescriptionContainer">
-              <p class="appDescription">Quickly capture quotes. Add them to your home screen to stay inspired. Share favorites with others.</p>
+              <p class="appDescription">Quotify is your personal library for the words that move you. Save quotes from books, articles, podcasts and conversations, then see them again every day on your Home Screen and Lock Screen.</p>
             </div>
             <div class="downloadButtonsContainer">
               
               <a class="appStoreLink" href="https://apps.apple.com/us/app/quotify-save-your-quotes/id1626937020"><img class="appStore" src="assets/appstore.png"></a>
             </div>
           </div>
+          <div class="v2Content">
+            <h2 class="sectionTitle">What's new in Quotify 2.0</h2>
+            <p class="sectionIntro">Quotify 2.0 is here, with a fresh new design and new ways to choose which quotes you see each day.</p>
+            <div class="spotlights">
+              <div class="spotlight">
+                <div class="spotlightImage"><img src="./assets/2.0/feature-smart-photo-to-quote.jpg" srcset="./assets/2.0/feature-smart-photo-to-quote.jpg 1x, ./assets/2.0/feature-smart-photo-to-quote@2x.jpg 2x" width="1200" height="900" alt="A photo of a page from Walden with &quot;Our life is frittered away by detail.&quot; highlighted, then the same quote saved in Quotify with Henry David Thoreau, Walden, p. 99" loading="lazy" /></div>
+                <div class="spotlightText">
+                  <span class="spotlightTag">Smart Photo to Quote (Premium)</span>
+                  <h3>Add Quotes From Anywhere</h3>
+                  <p>Pulls the quote, author and page from any photo</p>
+                </div>
+              </div>
+              <div class="spotlight">
+                <div class="spotlightImage"><img src="./assets/2.0/feature-widgets.jpg" srcset="./assets/2.0/feature-widgets.jpg 1x, ./assets/2.0/feature-widgets@2x.jpg 2x" width="1200" height="900" alt="An iPhone Home Screen with Quotify widgets in large, small and photo styles and a Daily Quote reminder, with the two small widgets shown up close" loading="lazy" /></div>
+                <div class="spotlightText">
+                  <h3>Get Inspired Daily</h3>
+                  <p>Widgets and daily reminders from your own library</p>
+                </div>
+              </div>
+              <div class="spotlight">
+                <div class="spotlightImage"><img src="./assets/2.0/feature-share-image.jpg" srcset="./assets/2.0/feature-share-image.jpg 1x, ./assets/2.0/feature-share-image@2x.jpg 2x" width="1200" height="900" alt="The Share Quote sheet with Story, Square and Wide sizes and color choices, next to a finished share image with a photo background" loading="lazy" /></div>
+                <div class="spotlightText">
+                  <h3>Share To Motivate Others</h3>
+                  <p>One tap to Instagram Stories</p>
+                  <p class="spotlightNote">Your own photo behind widgets and share images (Premium)</p>
+                </div>
+              </div>
+              <div class="spotlight">
+                <div class="spotlightImage"><img src="./assets/2.0/feature-custom-fields.jpg" srcset="./assets/2.0/feature-custom-fields.jpg 1x, ./assets/2.0/feature-custom-fields@2x.jpg 2x" width="1200" height="900" alt="Editing a Marcus Aurelius quote in Quotify, with Book Title &quot;Meditations&quot; and Page &quot;5.16&quot; fields shown up close" loading="lazy" /></div>
+                <div class="spotlightText">
+                  <h3>Save Quotes Your Way</h3>
+                  <p>Add your own fields, like book and page (Premium)</p>
+                </div>
+              </div>
+              <div class="spotlight">
+                <div class="spotlightImage"><img src="./assets/2.0/feature-search-filter.jpg" srcset="./assets/2.0/feature-search-filter.jpg 1x, ./assets/2.0/feature-search-filter@2x.jpg 2x" width="1200" height="900" alt="Searching a Quotify library for &quot;life&quot;, with a close-up of the library filtered to Book Title: Meditations" loading="lazy" /></div>
+                <div class="spotlightText">
+                  <h3>Find Any Quote Fast</h3>
+                  <p>Search, filter and sort by any field</p>
+                </div>
+              </div>
+            </div>
+            <h2 class="sectionTitle allFeaturesTitle">Everything in Quotify 2.0</h2>
           <div class="features">
 
-    
-
-    
     <div class="feature">
         <div>
             <span class="fa-stack fa-1x">
@@ -161,39 +208,48 @@
         </div>
         <div class="featureText">
             <h3>
-                Quickly Capture Quotes
+                Smart Photo to Quote
             </h3>
             <p>
-                Capture text and add quotes fast using the camera, voice, or keyboard.
+                Take or choose any photo, like a book page, sign or screenshot, and Quotify pulls the quote, author and page (Premium).
             </p>
         </div>
     </div>
-    
 
-    
-
-   <!-- 
     <div class="feature">
         <div>
             <span class="fa-stack fa-1x">
                 <i class="iconBack fas fa-circle fa-stack-2x"></i>
-                <i class="iconTop fas fa-download fa-stack-1x"></i>
+                <i class="iconTop fas fa-palette fa-stack-1x"></i>
             </span>
         </div>
         <div class="featureText">
             <h3>
-                Import From Other Apps
+                A Fresh New Design
             </h3>
             <p>
-                Save quotes from other apps like Twitter, Instagram, Safari, Chrome, Podcasts, and more.
+                Cleaner quote rows and Liquid Glass controls. Tap a quote to share it, or swipe and long-press for quick actions.
             </p>
         </div>
     </div>
-    
--->
-    
 
-    
+    <div class="feature">
+        <div>
+            <span class="fa-stack fa-1x">
+                <i class="iconBack fas fa-circle fa-stack-2x"></i>
+                <i class="iconTop fas fa-sliders fa-stack-1x"></i>
+            </span>
+        </div>
+        <div class="featureText">
+            <h3>
+                Choose Your Daily Quotes
+            </h3>
+            <p>
+                Pick which quotes your widgets and reminders show, by any field you've added (Premium).
+            </p>
+        </div>
+    </div>
+
     <div class="feature">
         <div>
             <span class="fa-stack fa-1x">
@@ -203,18 +259,48 @@
         </div>
         <div class="featureText">
             <h3>
-                Home Screen Widgets
+                Home and Lock Screen Widgets
             </h3>
             <p>
-                Add widgets to your home screen and stay inspried with quotes from your collection.
+                Widgets show quotes from your own library, look right on tinted and clear Home Screens, and can use your own photo (Premium).
             </p>
         </div>
     </div>
-    
 
-    
+    <div class="feature">
+        <div>
+            <span class="fa-stack fa-1x">
+                <i class="iconBack fas fa-circle fa-stack-2x"></i>
+                <i class="iconTop fas fa-bell fa-stack-1x"></i>
+            </span>
+        </div>
+        <div class="featureText">
+            <h3>
+                Daily Reminders
+            </h3>
+            <p>
+                Daily reminders at the times you choose, as many as you like, now with the author (Premium).
+            </p>
+        </div>
+    </div>
 
-    
+    <div class="feature">
+        <div>
+            <span class="fa-stack fa-1x">
+                <i class="iconBack fas fa-circle fa-stack-2x"></i>
+                <i class="iconTop fas fa-tags fa-stack-1x"></i>
+            </span>
+        </div>
+        <div class="featureText">
+            <h3>
+                Organize Your Way
+            </h3>
+            <p>
+                Organize quotes with your own fields (Premium), then filter your library by any field and sort by newest, author or quote.
+            </p>
+        </div>
+    </div>
+
     <div class="feature">
         <div>
             <span class="fa-stack fa-1x">
@@ -227,15 +313,45 @@
                 Style and Share
             </h3>
             <p>
-                Customize and share to inspire others with built-in formating for exporting images of your favorite quotes.
+                A new Share Quote sheet with Story, Square and Wide images, an accent color, and straight-to-Instagram Stories sharing. Your own photo behind share images (Premium).
             </p>
         </div>
     </div>
-    
 
-    
+    <div class="feature">
+        <div>
+            <span class="fa-stack fa-1x">
+                <i class="iconBack fas fa-circle fa-stack-2x"></i>
+                <i class="iconTop fas fa-microphone fa-stack-1x"></i>
+            </span>
+        </div>
+        <div class="featureText">
+            <h3>
+                Add Quotes Your Way
+            </h3>
+            <p>
+                Record, Paste, Photo or Scan. Share from Safari and other apps, and Safari pages keep their link and title.
+            </p>
+        </div>
+    </div>
 
-    
+    <div class="feature">
+        <div>
+            <span class="fa-stack fa-1x">
+                <i class="iconBack fas fa-circle fa-stack-2x"></i>
+                <i class="iconTop fas fa-magnifying-glass fa-stack-1x"></i>
+            </span>
+        </div>
+        <div class="featureText">
+            <h3>
+                Spotlight, Siri and Shortcuts
+            </h3>
+            <p>
+                Find quotes by text or author from Spotlight and Siri, and save new quotes with a Shortcuts action.
+            </p>
+        </div>
+    </div>
+
     <div class="feature">
         <div>
             <span class="fa-stack fa-1x">
@@ -248,36 +364,59 @@
                 Backup and Sync
             </h3>
             <p>
-                Automatic quote backup and sync across all your devices. Requires Quotify Premium.
+                Private backup and sync across your devices with iCloud, with your sync status in Settings (Premium).
             </p>
         </div>
     </div>
-    
 
-    
-
-    
     <div class="feature">
         <div>
             <span class="fa-stack fa-1x">
                 <i class="iconBack fas fa-circle fa-stack-2x"></i>
-                <i class="iconTop fas fa-bell fa-stack-1x"></i>
+                <i class="iconTop fas fa-lock fa-stack-1x"></i>
             </span>
         </div>
         <div class="featureText">
             <h3>
-                Daily Notifications
+                Your Library, Your Data
             </h3>
             <p>
-                Configure daily quote notifications for inspiration. Requires Quotify Premium.
+                No account to create. Export your library to CSV or a backup file, and import it back, anytime (Premium).
             </p>
         </div>
     </div>
-    
 
-    
+    <div class="feature">
+        <div>
+            <span class="fa-stack fa-1x">
+                <i class="iconBack fas fa-circle fa-stack-2x"></i>
+                <i class="iconTop fas fa-book-open fa-stack-1x"></i>
+            </span>
+        </div>
+        <div class="featureText">
+            <h3>
+                Ready for iPhone Duo
+            </h3>
+            <p>
+                Quotify 2.0 is ready for iPhone Duo.
+            </p>
+        </div>
+    </div>
 
-</div> <footer>
+</div>
+            <section class="screenshotsSection" id="screenshots">
+              <h2 class="sectionTitle">Screenshots</h2>
+              <div class="screenshotRow">
+              <figure><img src="./assets/2.0/screenshot-01.jpg" alt="Save and Organize Your Favorite Quotes: Library in the new design" width="660" height="1434" /><figcaption>Save and Organize Your Favorite Quotes</figcaption></figure>
+              <figure><img src="./assets/2.0/screenshot-02.jpg" alt="Get Inspired Daily: Home Screen widgets and reminders" width="660" height="1434" /><figcaption>Get Inspired Daily</figcaption></figure>
+              <figure><img src="./assets/2.0/screenshot-03.jpg" alt="Add Quotes From Anywhere: Smart Photo to Quote" width="660" height="1434" /><figcaption>Add Quotes From Anywhere</figcaption></figure>
+              <figure><img src="./assets/2.0/screenshot-04.jpg" alt="Share To Motivate Others: Share Quote sheet" width="660" height="1434" /><figcaption>Share To Motivate Others</figcaption></figure>
+              <figure><img src="./assets/2.0/screenshot-05.jpg" alt="Save Quotes Your Way: Your own fields, like book and page" width="660" height="1434" /><figcaption>Save Quotes Your Way</figcaption></figure>
+              <figure><img src="./assets/2.0/screenshot-06.jpg" alt="Find Any Quote Fast: Search, filter and sort" width="660" height="1434" /><figcaption>Find Any Quote Fast</figcaption></figure>
+              </div>
+            </section>
+          </div>
+ <footer>
   <div class="footerIcons">
      
     <a href="https://twitter.com/jayhickey">
@@ -324,7 +463,11 @@
     
     <a href="privacypolicy/" target="_self">Privacy Policy</a>
 
-    <a href="https://finalbits.io/downloads/quotify/presskit.zip">Press Kit</a>
+    <a href="terms" target="_self">Terms of Use</a>
+
+    <a href="mailto:quotify@finalbits.io">Support</a>
+
+    <a href="/quotify/press/" target="_self">Press Kit</a>
      
   </div>
 </footer>
@@ -404,3 +547,4 @@ $(function() {
     </div>
   </body>
 </html>
+
