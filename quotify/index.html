@@ -32,6 +32,9 @@
   --line:rgba(255,255,255,.12); --chip:#363636; --accent:#007aff; --accent2:#0a84ff;
   --bezel:#111; --bezelRing:rgba(255,255,255,.16); --shadow:0 30px 80px rgba(0,0,0,.6);
   --badgeShadow:drop-shadow(0 0 5px gray);
+  --quote:#E8873A; --qcard:#16161a;
+  --newBg:linear-gradient(135deg,#0d2a55 0%,#0b1d36 55%,#0f2f33 100%);
+  --pill:#1f1f22;
 }
 @media (prefers-color-scheme: light){
   :root{
@@ -39,332 +42,388 @@
     --line:rgba(0,0,0,.1); --chip:#e8e8ed; --accent:#007aff; --accent2:#0071e3;
     --bezel:#1d1d1f; --bezelRing:rgba(0,0,0,.08); --shadow:0 30px 70px rgba(0,0,0,.22);
     --badgeShadow:none;
+    --quote:#D2691E; --qcard:#fbf7ef;
+    --newBg:linear-gradient(135deg,#e6f0ff 0%,#eef4ff 55%,#e5f5f3 100%);
+    --pill:#f2f2f5;
   }
 }
 html{font-size:62.5%}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+picture{display:block}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:2rem;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
 .serif{font-family:ui-serif,"Iowan Old Style",Charter,Georgia,serif}
-.wrap{max-width:1170px;margin:0 auto;padding:0 15px}
+.wrap{max-width:1170px;margin:0 auto;padding:0 20px}
+.badge img{height:56px;width:auto;object-fit:contain}
+.badge{display:inline-block}
 
-header{display:flex;align-items:center;justify-content:space-between;height:115px}
-header img{width:50px;height:50px;border-radius:12px}
-header nav a{color:var(--text3);font-size:2rem;margin-left:30px}
-header nav a:hover{color:var(--text)}
+header{display:flex;align-items:center;justify-content:space-between;height:96px;gap:16px}
+header .brand{display:flex;align-items:center;gap:12px;color:var(--text);font-weight:700;font-size:2rem;white-space:nowrap}
+header .brand img{width:40px;height:40px;border-radius:10px}
+header nav{display:flex;align-items:center;gap:26px;white-space:nowrap}
+header nav a.plain{color:var(--text3);font-size:1.7rem}
+header nav a.plain:hover{color:var(--text)}
+header nav a.get{background:var(--accent2);color:#fff;font-weight:600;font-size:1.5rem;padding:8px 18px;border-radius:999px}
+header nav a.get:hover{filter:brightness(1.08)}
 
-.hero{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:center;padding:30px 0 40px}
-.appRow{display:flex;align-items:center;gap:22px}
-.appRow img{width:96px;height:96px;border-radius:22px;filter:drop-shadow(0 5px 10px rgba(0,0,0,.1))}
-.appRow h1{font-size:3.2rem;font-weight:700;letter-spacing:-.01em}
-.appRow .sub{color:var(--text3);font-size:1.7rem;margin-top:2px}
-.newBadge{display:inline-flex;align-items:center;gap:8px;margin-top:34px;padding:7px 16px;border-radius:999px;background:var(--chip);color:var(--text);font-size:1.5rem;font-weight:600}
-.newBadge i{color:var(--accent)}
-.hero h2{font-size:6.2rem;line-height:1.04;font-weight:900;letter-spacing:-.015em;margin-top:22px}
-.hero p.lede{color:var(--text2);font-size:2.2rem;line-height:1.5;margin-top:22px;max-width:470px}
-.badgeRow{margin-top:36px;display:flex;align-items:center;gap:18px}
-.badgeRow img{height:60px;filter:var(--badgeShadow)}
-.badgeRow span{color:var(--text3);font-size:1.5rem}
-.heroArt{position:relative;height:700px}
+.hero{text-align:center;padding:40px 0 0}
+.hero .icon{width:112px;height:112px;border-radius:26px;margin:0 auto;box-shadow:0 12px 40px rgba(10,132,255,.25)}
+.hero .name{font-size:2.2rem;font-weight:700;margin-top:18px;color:var(--text2)}
+.hero h1{font-size:8.4rem;line-height:1.02;font-weight:900;letter-spacing:-.02em;margin:14px auto 0;max-width:900px;text-wrap:balance}
+.hero .lede{color:var(--text2);font-size:2.3rem;line-height:1.5;margin:24px auto 0;max-width:640px}
+.hero .cta{margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.hero .cta span{color:var(--text3);font-size:1.5rem}
+.heroArt{position:relative;height:640px;margin-top:60px;overflow:hidden}
+.heroArt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(transparent,var(--bg));z-index:5;pointer-events:none}
 .heroArt .phone{position:absolute}
-.heroArt .p1{width:296px;left:50%;top:20px;transform:translateX(-50%);z-index:3}
-.heroArt .p2{width:240px;left:1%;top:120px;transform:rotate(-6deg);z-index:2;opacity:.98}
-.heroArt .p3{width:240px;right:1%;top:120px;transform:rotate(6deg);z-index:2;opacity:.98}
+.heroArt .p1{width:320px;left:50%;top:0;margin-left:-160px;z-index:3}
+.heroArt .p2{width:270px;left:50%;top:90px;margin-left:-450px;transform:rotate(-7deg);z-index:2}
+.heroArt .p3{width:270px;left:50%;top:90px;margin-left:180px;transform:rotate(7deg);z-index:2}
+.heroArt .p3 img{aspect-ratio:1320/2868;object-fit:cover;object-position:top}
 
 .phone{background:var(--bezel);padding:3.2%;border-radius:15%/7%;box-shadow:0 0 0 1px var(--bezelRing),var(--shadow)}
-.phone img{display:block;width:100%;height:auto;border-radius:12.5%/5.8%}
-.phone.crop{overflow:hidden}
+.phone img{width:100%;border-radius:12.5%/5.8%}
 
-.sectionTitle{font-size:4.4rem;font-weight:900;line-height:1.1;letter-spacing:-.01em;text-align:center}
-.sectionIntro{color:var(--text2);font-size:2.1rem;text-align:center;max-width:720px;margin:14px auto 0}
-.eyebrow{display:block;color:var(--accent);font-size:1.4rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center;margin-bottom:12px}
+.meet{margin-top:10px;background:var(--newBg);border:1px solid var(--line);border-radius:36px;padding:56px 56px 50px;text-align:center}
+.eyebrow{display:block;color:var(--accent2);font-size:1.4rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.meet h2{font-size:5.2rem;line-height:1.08;font-weight:900}
+.meet p{color:var(--text2);font-size:2.1rem;max-width:640px;margin:14px auto 0}
+.meetTiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px;text-align:left}
+.meetTiles a{display:flex;gap:16px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:22px;color:var(--text)}
+.meetTiles i{flex:0 0 44px;height:44px;border-radius:12px;background:var(--accent2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.meetTiles b{display:block;font-size:1.9rem;line-height:1.25}
+.meetTiles small{display:block;color:var(--text2);font-size:1.6rem;line-height:1.4;margin-top:4px;font-weight:400}
 
-.whatsNew{padding:90px 0 20px}
-.chapters{display:flex;flex-direction:column;gap:90px;margin-top:70px}
-.chapter{display:grid;grid-template-columns:7fr 5fr;gap:60px;align-items:center}
+.manifesto{text-align:center;padding:150px 0 40px}
+.manifesto p.big{font-size:5rem;line-height:1.18;font-weight:700;letter-spacing:-.01em;max-width:960px;margin:0 auto}
+.manifesto p.big em{font-style:normal;color:var(--text3)}
+.manifesto p.small{color:var(--text2);font-size:2.3rem;max-width:620px;margin:26px auto 0}
+
+.chapters{display:flex;flex-direction:column;gap:110px;margin-top:100px}
+.chapter{display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:center}
 .chapter.flip{grid-template-columns:5fr 7fr}
 .chapter.flip .panel{order:2}
-.panel{position:relative;height:600px;border-radius:36px;overflow:hidden}
-.panel .phone{position:absolute;left:50%;transform:translateX(-50%)}
-.chapter .tag{display:inline-block;margin-right:4px;padding:6px 14px;border-radius:999px;background:#0A84FF;color:#fff;font-size:1.4rem;font-weight:700;margin-bottom:18px}
-.chapter .tag.ghost{background:var(--chip);color:var(--text)}
-.chapter h3{font-size:4.6rem;line-height:1.06;font-weight:900;letter-spacing:-.01em}
-.chapter .subline{font-size:2.4rem;line-height:1.35;margin-top:14px;font-weight:600}
-.chapter .body{color:var(--text2);font-size:1.9rem;line-height:1.55;margin-top:16px;max-width:440px}
-.g-blue{background:linear-gradient(160deg,#1F4FB8,#14306E)}
-.g-brown{background:linear-gradient(160deg,#4a3a2c,#241a12)}
-.g-brown2{background:linear-gradient(160deg,#5a4532,#2c2118)}
+.panel{position:relative;border-radius:36px;overflow:hidden}
+.panel.tall{height:620px}
+.panel.tall .phone{position:absolute;left:50%;transform:translateX(-50%)}
+.chapter h3{font-size:5.2rem;line-height:1.05;font-weight:900;letter-spacing:-.01em}
+.chapter .body{color:var(--text2);font-size:2.1rem;line-height:1.55;margin-top:20px;max-width:460px}
+.g-brown{background:linear-gradient(160deg,#5a4532,#2c2118)}
+.g-taupe{background:linear-gradient(160deg,#6d6152,#3a3229)}
 .g-orange{background:linear-gradient(160deg,#C46A1C,#7A3A0C)}
 .g-green{background:linear-gradient(160deg,#2E7A43,#164426)}
 .g-purple{background:linear-gradient(160deg,#6B3BA6,#3A1F63)}
 .g-teal{background:linear-gradient(160deg,#1B6F7A,#0B3940)}
-
-.homeCrop{width:380px;top:60px;border-radius:60px 60px 0 0;padding-bottom:0}
+.homeCrop{width:380px;max-width:92%;top:60px;border-radius:60px 60px 0 0;padding-bottom:0}
 .homeCrop img{border-radius:48px 48px 0 0}
-.photoArt .pg{position:absolute;left:7%;top:40px;width:86%;border-radius:8px;transform:rotate(-3deg);box-shadow:0 30px 70px rgba(0,0,0,.45)}
-.photoArt .pgtag{position:absolute;left:9%;top:42px;padding:7px 14px;border-radius:999px;background:#0A84FF;color:#fff;font-size:1.5rem;font-weight:700;transform:rotate(-3deg);z-index:2}
-.photoArt .arrow{position:absolute;left:0;right:0;top:376px;text-align:center;color:#fff;font-size:3.4rem;opacity:.9}
-.photoArt .row{position:absolute;left:8%;right:8%;top:424px;background:#fff;border-radius:30px;padding:26px 26px 22px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
-.photoArt .row img{display:block;width:100%}
-.photoArt .chips{position:absolute;left:8%;right:8%;top:548px;display:flex;gap:10px;justify-content:center}
-.photoArt .chips span{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;font-weight:600;backdrop-filter:blur(8px)}
+.phRot{width:270px;top:40px}
+.phCard{width:250px;max-width:82%;top:40px}
 
-.shareArt .card{position:absolute;left:50%;top:34px;width:200px;margin-left:-100px;border-radius:12px;transform:rotate(-3deg);box-shadow:0 30px 70px rgba(0,0,0,.45)}
-.shareArt .bar{position:absolute;left:6%;right:6%;bottom:30px;background:#fff;border-radius:34px;padding:8px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
-.shareArt .bar img{display:block;width:100%}
+.photoFlow{padding:44px 44px 40px;display:flex;flex-direction:column;align-items:center}
+.photoFlow .shot{position:relative;width:100%;max-width:520px}
+.photoFlow .shot img{width:100%;border-radius:12px;transform:rotate(-2deg);box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.photoFlow .shot .tag{position:absolute;left:14px;top:-12px;padding:7px 14px;border-radius:999px;background:#0A84FF;color:#fff;font-size:1.4rem;font-weight:700;transform:rotate(-2deg);display:inline-flex;align-items:center;gap:6px}
+.photoFlow .arrow{color:#fff;font-size:3rem;opacity:.9;margin:20px 0 16px;line-height:1}
+.qrow{width:100%;max-width:520px;background:#fff;border-radius:24px;padding:22px 26px;box-shadow:0 26px 60px rgba(0,0,0,.45);color:#1d1d1f;text-align:left}
+.qrow .q{display:flex;gap:12px;font-size:2.7rem;line-height:1.25}
+.qrow .q::before{content:"\201C";color:#E07A2B;font-weight:900;font-size:4.2rem;line-height:.9}
+.qrow .by{display:flex;align-items:center;gap:8px;margin:10px 0 0 34px;font-size:1.35rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.qrow .by i{color:#E07A2B}
+.qrow .by em{font-family:ui-serif,"Iowan Old Style",Charter,Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;color:#86868b;font-size:1.7rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.chips span{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-size:1.5rem;font-weight:600}
 
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:100px}
-.fcard .panel{height:440px;border-radius:30px}
-.fcard h3{font-size:2.8rem;line-height:1.15;font-weight:900;margin-top:24px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:130px}
+.fcard .panel{height:460px;border-radius:30px}
+.fcard .panel .phone{position:absolute;left:50%;transform:translateX(-50%)}
+.fcard h3{font-size:3rem;line-height:1.15;font-weight:900;margin-top:24px}
 .fcard p{color:var(--text2);font-size:1.8rem;margin-top:8px}
+.shareArt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:28px}
+.shareArt .card{width:200px;border-radius:14px;overflow:hidden;transform:rotate(-3deg);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.shareArt .card img{width:100%;transform:scale(1.012)}
+.shareArt .bar{width:88%;max-width:320px;background:#fff;border-radius:30px;padding:7px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.shareArt .bar img{width:100%}
 
-.everything{padding:120px 0 0}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:46px 40px;margin-top:56px}
-.feature{display:flex;gap:18px}
-.feature .ic{flex:0 0 44px;height:44px;border-radius:50%;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.8rem}
-.feature h4{font-size:2rem;font-weight:700;line-height:1.3}
-.feature p{color:var(--text3);font-size:1.7rem;line-height:1.5;margin-top:6px}
-.feature .pm{color:var(--text2)}
+.wall{padding:150px 0 0;text-align:center}
+.wall h2,.more h2{font-size:5.2rem;line-height:1.08;font-weight:900}
+.wall .sub{color:var(--text2);font-size:2.1rem;margin-top:12px}
+.wallGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px;text-align:left}
+.wq{background:var(--qcard);border:1px solid var(--line);border-radius:24px;padding:26px 24px 22px;display:flex;flex-direction:column;justify-content:space-between}
+.wq p{font-size:2.3rem;line-height:1.3}
+.wq p::before{content:"\201C";color:var(--quote);font-weight:900;margin-right:4px}
+.wq span{display:block;margin-top:16px;font-size:1.25rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text2)}
+.wq span em{display:block;font-family:ui-serif,"Iowan Old Style",Charter,Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:1.6rem;color:var(--text3);margin-top:2px}
+.wq.t2{grid-row:span 2}
 
-.plans{padding:120px 0 0}
-.planGrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:900px;margin:50px auto 0}
-.plan{background:var(--card);border-radius:28px;padding:36px 36px 32px;border:1px solid var(--line)}
-.plan.prem{border:2px solid var(--accent)}
-.plan .pname{font-size:2.6rem;font-weight:800}
-.plan .pname i{color:#FFD60A;margin-right:8px;font-size:2.2rem}
-.plan .pdesc{color:var(--text3);font-size:1.7rem;margin-top:4px}
-.plan ul{list-style:none;margin-top:22px}
-.plan li{display:flex;gap:12px;align-items:flex-start;font-size:1.9rem;padding:9px 0;border-top:1px solid var(--line)}
-.plan li:first-child{border-top:0}
-.plan li i{color:var(--accent);margin-top:5px;font-size:1.6rem}
+.more{padding:150px 0 0;text-align:center}
+.moreChips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:960px;margin:40px auto 0}
+.moreChips span{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;background:var(--pill);border:1px solid var(--line);font-size:1.75rem;font-weight:600}
+.moreChips i{color:var(--accent2)}
 
-.shots{padding:120px 0 0}
-.shotRow{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:50px}
-.shotRow figure{margin:0}
-.shotRow img{display:block;width:100%;border-radius:16px}
-.shotRow figcaption{color:var(--text3);font-size:1.4rem;line-height:1.35;margin-top:10px;text-align:center}
+.close{margin:150px 0 0;padding:80px 30px 70px;text-align:center;border-radius:40px;background:var(--newBg);border:1px solid var(--line)}
+.close .icon{width:120px;height:120px;border-radius:28px;margin:0 auto}
+.close h2{font-size:6.4rem;line-height:1.05;font-weight:900;margin-top:26px}
+.close p{color:var(--text2);font-size:2.2rem;margin:12px auto 0;max-width:560px}
+.close .badge{margin-top:30px}
+.close .fine{color:var(--text3);font-size:1.6rem;margin:22px auto 0;max-width:640px}
 
-.cta{margin:120px 0 0;padding:70px 30px;text-align:center;background:var(--card);border-radius:36px}
-.cta img.icon{width:96px;height:96px;border-radius:22px}
-.cta h2{font-size:4.4rem;font-weight:900;margin-top:20px;line-height:1.1}
-.cta p{color:var(--text2);font-size:2rem;margin-top:10px}
-.cta .badge{height:60px;margin-top:28px;filter:var(--badgeShadow)}
+footer{padding:80px 0 60px;text-align:center}
+.footerIcons{display:flex;justify-content:center;gap:28px;font-size:2.4rem}
+.footerIcons a{color:var(--text3)}
+.footerIcons a:hover{color:var(--text)}
+.footerText{color:var(--text3);font-size:1.6rem;margin-top:24px;line-height:1.5}
+.footerText a{color:var(--accent)}
+.footerLinks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin-top:22px;font-size:1.5rem}
+.footerLinks a{color:var(--text3)}
+.footerLinks a:hover{color:var(--text)}
 
-footer{text-align:center;padding:70px 0 70px}
-.footerIcons{display:flex;justify-content:center;gap:14px}
-.footerIcons a{width:44px;height:44px;border-radius:50%;background:var(--chip);display:flex;align-items:center;justify-content:center;color:var(--text);font-size:1.8rem}
-.footerText{color:var(--text3);margin-top:60px;line-height:1.5}
-.footerLinks{display:flex;justify-content:center;gap:30px;margin-top:50px}
+@media (max-width: 1000px){
+  .hero h1{font-size:6.6rem}
+  .heroArt{height:560px}
+  .heroArt .p1{width:270px;margin-left:-135px}
+  .heroArt .p2,.heroArt .p3{width:220px;top:70px}
+  .heroArt .p2{margin-left:-360px}
+  .heroArt .p3{margin-left:140px}
+  .chapter h3{font-size:4.2rem}
+  .meet h2,.wall h2,.more h2{font-size:4.4rem}
+  .manifesto p.big{font-size:4rem}
+}
 
 @media (max-width: 768px){
-  header{height:80px}
-  header img{width:40px;height:40px;border-radius:10px}
-  .hero{grid-template-columns:1fr;gap:0;padding:10px 0 0;text-align:center}
-  .appRow{justify-content:center}
-  .appRow img{width:64px;height:64px;border-radius:15px}
-  .appRow{flex-direction:column;gap:10px}
-  .appRow h1{font-size:2.8rem}
-  .newBadge{display:inline-block;margin-top:22px;font-size:1.4rem;line-height:1.4;max-width:330px;border-radius:18px;padding:8px 16px}
-  .newBadge i{margin-right:6px}
-  .hero h2{font-size:4.2rem;margin-top:16px}
-  .hero p.lede{font-size:1.9rem;margin:16px auto 0}
-  .badgeRow{justify-content:center;flex-direction:column;gap:10px;margin-top:26px}
-  .badgeRow img{height:52px}
-  .heroArt{height:470px;margin-top:34px;overflow:hidden}
-  .heroArt .p1{width:206px;top:10px}
-  .heroArt .p2{width:168px;left:-2%;top:70px}
-  .heroArt .p3{width:168px;right:-2%;top:70px}
-  .whatsNew{padding:60px 0 0}
-  .sectionTitle{font-size:3.4rem}
-  .sectionIntro{font-size:1.8rem}
-  .chapters{gap:60px;margin-top:44px}
-  .chapter,.chapter.flip{grid-template-columns:1fr;gap:24px;text-align:center}
+  .wrap{padding:0 16px}
+  header{height:72px}
+  header .brand{font-size:1.8rem}
+  header .brand img{width:34px;height:34px;border-radius:8px}
+  header nav{gap:16px}
+  header nav a.plain{font-size:1.5rem}
+  header nav a.get{font-size:1.4rem;padding:7px 14px}
+  .hero{padding-top:22px}
+  .hero .icon{width:84px;height:84px;border-radius:20px}
+  .hero .name{font-size:1.8rem;margin-top:12px}
+  .hero h1{font-size:4.8rem;line-height:1.04}
+  .hero .lede{font-size:1.85rem;margin-top:16px}
+  .hero .cta{margin-top:26px}
+  .badge img{height:50px}
+  .heroArt{height:470px;margin:40px -16px 0}
+  .heroArt::after{height:140px}
+  .heroArt .p1{width:56%;margin-left:-28%}
+  .heroArt .p2,.heroArt .p3{width:44%;top:60px}
+  .heroArt .p2{margin-left:-63%}
+  .heroArt .p3{margin-left:19%}
+  .heroArt .p1{width:min(56%,270px);margin-left:max(-28%,-135px)}
+  .heroArt .p2,.heroArt .p3{width:min(44%,220px)}
+  .heroArt .p2{margin-left:max(-63%,-360px)}
+  .heroArt .p3{margin-left:min(19%,140px)}
+  .meet{border-radius:28px;padding:36px 18px 22px}
+  .meet h2{font-size:3.6rem}
+  .meet p{font-size:1.8rem}
+  .meetTiles{grid-template-columns:1fr;gap:10px;margin-top:26px}
+  .meetTiles a{padding:16px;border-radius:18px}
+  .meetTiles b{font-size:1.75rem}
+  .meetTiles small{font-size:1.5rem}
+  .manifesto{padding:96px 4px 10px}
+  .manifesto p.big{font-size:3.1rem}
+  .manifesto p.small{font-size:1.85rem;margin-top:18px}
+  .chapters{gap:72px;margin-top:64px}
+  .chapter,.chapter.flip{grid-template-columns:1fr;gap:26px;text-align:center}
   .chapter.flip .panel{order:0}
-  .panel{height:470px;border-radius:28px}
-  .chapter h3{font-size:3.4rem}
-  .chapter .subline{font-size:2rem}
-  .chapter .body{font-size:1.75rem;margin:12px auto 0}
-  .photoArt .pg{top:34px}
-  .photoArt .arrow{top:252px;font-size:2.8rem}
-  .photoArt .row{top:298px;border-radius:22px;padding:18px 16px 14px}
-  .photoArt .chips{top:392px;gap:6px}
-  .homeCrop{width:290px;top:44px;border-radius:44px 44px 0 0}
-  .homeCrop img{border-radius:35px 35px 0 0}
-  .photoArt .chips span{font-size:1.25rem;padding:7px 11px;gap:6px}
-  .cards{grid-template-columns:1fr;gap:50px;margin-top:60px;text-align:center}
+  .panel{border-radius:28px}
+  .panel.tall{height:460px}
+  .chapter h3{font-size:3.6rem}
+  .chapter .body{font-size:1.8rem;margin:14px auto 0}
+  .homeCrop{width:290px;top:40px;border-radius:46px 46px 0 0}
+  .homeCrop img{border-radius:37px 37px 0 0}
+  .photoFlow{padding:30px 18px 24px}
+  .photoFlow .shot .tag{font-size:1.25rem;padding:6px 12px;left:10px;top:-10px}
+  .photoFlow .arrow{font-size:2.4rem;margin:16px 0 12px}
+  .qrow{border-radius:20px;padding:16px 18px}
+  .qrow .q{font-size:2.1rem;gap:8px}
+  .qrow .q::before{font-size:3.2rem}
+  .qrow .by{margin-left:26px;font-size:1.15rem;flex-wrap:wrap;gap:4px 7px}
+  .qrow .by em{font-size:1.45rem}
+  .chips{gap:6px;margin-top:16px}
+  .chips span{font-size:1.3rem;padding:7px 11px;gap:6px}
+  .cards{grid-template-columns:1fr;gap:56px;margin-top:80px;text-align:center}
   .fcard .panel{height:420px}
-  .fcard h3{font-size:2.8rem}
-  .everything{padding:80px 0 0}
-  .features{grid-template-columns:1fr;gap:30px;margin-top:36px}
-  .plans{padding:80px 0 0}
-  .planGrid{grid-template-columns:1fr;gap:20px;margin-top:34px}
-  .plan{padding:28px 24px 22px}
-  .shots{padding:80px 0 0}
-  .shotRow{display:flex;overflow:hidden;gap:12px;margin-top:34px;margin-right:-15px}
-  .shotRow figure{flex:0 0 150px}
-  .cta{margin-top:80px;padding:50px 20px;border-radius:28px}
-  .cta h2{font-size:3.2rem}
-  .footerLinks{flex-direction:column;gap:20px}
+  .fcard h3{font-size:3rem}
+  .wall,.more{padding-top:96px}
+  .wall h2,.more h2{font-size:3.6rem}
+  .wall .sub{font-size:1.8rem}
+  .wallGrid{grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+  .wq{padding:16px 14px 14px;border-radius:18px}
+  .wq p{font-size:1.75rem}
+  .wq span{font-size:1.05rem;margin-top:10px}
+  .wq span em{font-size:1.35rem}
+  .wq.hideM{display:none}
+  .wq.t2{grid-row:auto}
+  .moreChips{gap:8px;margin-top:26px}
+  .moreChips span{font-size:1.5rem;padding:9px 14px;gap:8px}
+  .close{margin-top:96px;padding:54px 18px 46px;border-radius:30px}
+  .close .icon{width:92px;height:92px;border-radius:21px}
+  .close h2{font-size:4.6rem}
+  .close p{font-size:1.85rem}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <header>
-  <img src="assets/2/appicon.png" alt="Quotify">
-  <nav><a href="/quotify/press/">Press Kit</a></nav>
+  <a class="brand" href="/quotify/"><img src="assets/2/appicon.png" width="512" height="512" alt="">Quotify</a>
+  <nav>
+    <a class="plain" href="/quotify/press/">Press Kit</a>
+    <a class="get" href="https://apps.apple.com/app/id1626937020">Download</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="heroText">
-    <div class="appRow"><img src="assets/2/appicon.png" alt=""><div><h1>Quotify</h1><div class="sub">by Final Bits</div></div></div>
-    <div class="newBadge"><i class="fas fa-star"></i>New: Smart Photo to Quote, free for everyone</div>
-    <h2 class="serif">Save and Organize Your Favorite Quotes</h2>
-    <p class="lede">Your personal library for the words that move you. Save quotes from books, articles, podcasts and conversations, then see them again every day on your Home Screen and Lock Screen.</p>
-    <div class="badgeRow"><a href="https://apps.apple.com/us/app/quotify-save-your-quotes/id1626937020"><img src="assets/2/appstore.svg" alt="Download on the App Store" width="176" height="60"></a><span>For iPhone and iPad</span></div>
+  <img class="icon" src="assets/2/appicon.png" width="512" height="512" alt="Quotify app icon">
+  <div class="name">Quotify</div>
+  <h1 class="serif">Keep the words that move you.</h1>
+  <p class="lede">Save quotes from books, articles, podcasts and conversations in seconds. Then see them again every day on your Home Screen and Lock Screen.</p>
+  <div class="cta">
+    <a class="badge" href="https://apps.apple.com/app/id1626937020"><img src="assets/2/appstore.svg" width="120" height="40" alt="Download on the App Store"></a>
+    <span>For iPhone and iPad</span>
   </div>
   <div class="heroArt">
-    <div class="phone p2"><picture><source srcset="assets/2/screen-home-660w.webp 660w, assets/2/screen-home.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-home.jpg" srcset="assets/2/screen-home-660w.jpg 660w, assets/2/screen-home.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Quotify widgets on a Home Screen" width="1320" height="2868"></picture></div>
-    <div class="phone p1"><picture><source srcset="assets/2/screen-library-660w.webp 660w, assets/2/screen-library.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-library.jpg" srcset="assets/2/screen-library-660w.jpg 660w, assets/2/screen-library.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="The Quotify library" width="1320" height="2868"></picture></div>
-    <div class="phone p3"><picture><source srcset="assets/2/screen-rotation-660w.webp 660w, assets/2/screen-rotation.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-rotation.jpg" srcset="assets/2/screen-rotation-660w.jpg 660w, assets/2/screen-rotation.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Choosing which quotes show" width="1320" height="2868"></picture></div>
+    <div class="phone p2"><picture><source srcset="assets/2/screen-home-660w.webp 660w, assets/2/screen-home.webp 1320w" type="image/webp" sizes="(max-width:768px) 44vw, 270px"><img src="assets/2/screen-home.jpg" srcset="assets/2/screen-home-660w.jpg 660w, assets/2/screen-home.jpg 1320w" sizes="(max-width:768px) 44vw, 270px" width="1320" height="2868" alt="Quotify widgets on the Home Screen"></picture></div>
+    <div class="phone p1"><picture><source srcset="assets/2/screen-library-660w.webp 660w, assets/2/screen-library.webp 1320w" type="image/webp" sizes="(max-width:768px) 56vw, 320px"><img src="assets/2/screen-library.jpg" srcset="assets/2/screen-library-660w.jpg 660w, assets/2/screen-library.jpg 1320w" sizes="(max-width:768px) 56vw, 320px" width="1320" height="2868" alt="A Quotify library of saved quotes"></picture></div>
+    <div class="phone p3"><picture><source srcset="assets/2/screen-home-top-660w.webp 660w, assets/2/screen-home-top.webp 1320w" type="image/webp" sizes="(max-width:768px) 44vw, 270px"><img src="assets/2/screen-home-top.jpg" srcset="assets/2/screen-home-top-660w.jpg 660w, assets/2/screen-home-top.jpg 1320w" sizes="(max-width:768px) 44vw, 270px" width="1320" height="2190" alt="A Daily Quote notification above Quotify widgets"></picture></div>
   </div>
 </section>
 
-<section class="whatsNew">
-  <span class="eyebrow">What's new</span>
-  <h2 class="sectionTitle serif">Meet Quotify 2</h2>
-  <p class="sectionIntro">A fresh new design, quotes from any photo, and new ways to choose which quotes you see each day.</p>
-  <div class="chapters">
-    <div class="chapter">
-      <div class="panel g-brown2 photoArt">
-        <img class="pg" src="assets/2/photo-walden-p99.jpg" alt="A photo of a page from Walden with a highlighted line" width="1600" height="995" loading="lazy" decoding="async">
-        <div class="arrow"><i class="fas fa-arrow-down"></i></div>
-        <div class="row"><img src="assets/2/saved-row.jpg" alt="The saved quote: Our life is frittered away by detail. Henry David Thoreau, Walden, p. 99" width="1276" height="188" loading="lazy" decoding="async"></div>
-        <div class="chips"><span><i class="fas fa-camera"></i>Camera</span><span><i class="fas fa-image"></i>Photos</span><span><i class="fas fa-mobile-screen"></i>Screenshots</span></div>
-      </div>
-      <div class="text">
-        <span class="tag">Smart Photo to Quote</span> <span class="tag ghost">Free</span>
-        <h3 class="serif">Add Quotes From Anywhere</h3>
-        <p class="subline">Pulls the quote and author from any photo</p>
-        <p class="body">Take or choose any photo, like a book page, sign or screenshot, and Quotify pulls the quote and author. Free for everyone.</p>
-      </div>
-    </div>
-    <div class="chapter flip">
-      <div class="panel g-brown">
-        <div class="phone homeCrop"><picture><source srcset="assets/2/screen-home-top-660w.webp 660w, assets/2/screen-home-top.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-home-top.jpg" srcset="assets/2/screen-home-top-660w.jpg 660w, assets/2/screen-home-top.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="A Daily Quote notification above Quotify widgets" width="1320" height="2190" loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="text">
-        <h3 class="serif">Get Inspired Daily</h3>
-        <p class="subline">Widgets and daily reminders from your own library</p>
-        <p class="body">Home and Lock Screen widgets show quotes from your own library and update as soon as you add one. Daily reminders bring a quote to you, even on days you forget to look (Premium).</p>
-      </div>
-    </div>
-    <div class="chapter">
-      <div class="panel g-teal">
-        <div class="phone" style="width:262px;top:30px"><picture><source srcset="assets/2/screen-rotation-660w.webp 660w, assets/2/screen-rotation.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-rotation.jpg" srcset="assets/2/screen-rotation-660w.jpg 660w, assets/2/screen-rotation.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Quotes to Show with Favorites selected and a live widget preview" width="1320" height="2868" loading="lazy" decoding="async"></picture></div>
-      </div>
-      <div class="text">
-        <span class="tag">New</span> <span class="tag ghost">Premium</span>
-        <h3 class="serif">Choose Which Quotes Show</h3>
-        <p class="subline">Pick Favorites and see your widget live</p>
-        <p class="body">Choose which quotes rotate through your widgets and reminders: everything, just your Favorites, or any field you've added. The widget preview updates as you pick.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="cards">
-    <div class="fcard">
-      <div class="panel g-green"><div class="phone" style="width:250px;bottom:-12px"><picture><source srcset="assets/2/screen-new-quote-660w.webp 660w, assets/2/screen-new-quote.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-new-quote.jpg" srcset="assets/2/screen-new-quote-660w.jpg 660w, assets/2/screen-new-quote.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="The New Quote sheet: photo, paste, audio recording or write it yourself" width="1320" height="2868" loading="lazy" decoding="async"></picture></div></div>
-      <h3 class="serif">Save Quotes Your Way</h3><p>Record, paste or add from a photo</p>
-    </div>
-    <div class="fcard">
-      <div class="panel g-orange shareArt">
-        <img class="card" src="assets/2/share-card.jpg" alt="A Story share image of a Thoreau quote" width="738" height="1305" loading="lazy" decoding="async">
-        <div class="bar"><img src="assets/2/share-bar.jpg" alt="Save, Instagram and Share buttons" width="1260" height="230" loading="lazy" decoding="async"></div>
-      </div>
-      <h3 class="serif">Share To Motivate Others</h3><p>One tap to Instagram Stories</p>
-    </div>
-    <div class="fcard">
-      <div class="panel g-purple"><div class="phone crop" style="width:250px;top:40px"><picture><source srcset="assets/2/screen-search-660w.webp 660w, assets/2/screen-search.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-search.jpg" srcset="assets/2/screen-search-660w.jpg 660w, assets/2/screen-search.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Searching the library for life" width="1320" height="2868" loading="lazy" decoding="async"></picture></div></div>
-      <h3 class="serif">Find Any Quote Fast</h3><p>Search, filter and sort by any field</p>
-    </div>
+<section class="meet" id="new">
+  <span class="eyebrow">New</span>
+  <h2 class="serif">Meet Quotify 2</h2>
+  <p>A fresh new design, quotes from any photo, and new ways to choose which quotes you see each day.</p>
+  <div class="meetTiles">
+    <a href="#photo"><i class="fas fa-camera"></i><span><b>Smart Photo to Quote</b><small>Take or choose a photo and get the quote and author.</small></span></a>
+    <a href="#design"><i class="fas fa-wand-magic-sparkles"></i><span><b>A fresh new design</b><small>Cleaner quote rows and Liquid Glass controls.</small></span></a>
+    <a href="#favorites"><i class="fas fa-star"></i><span><b>Choose which quotes show</b><small>Just your Favorites, or any field you've added.</small></span></a>
   </div>
 </section>
 
-<section class="everything">
-  <h2 class="sectionTitle serif">Everything in Quotify</h2>
-  <div class="features">
-    <div class="feature"><div class="ic"><i class="fas fa-camera"></i></div><div><h4>Smart Photo to Quote</h4><p>Take or choose any photo, like a book page, sign or screenshot, and Quotify pulls the quote and author.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-palette"></i></div><div><h4>A Fresh New Design</h4><p>Cleaner quote rows and Liquid Glass controls. Tap a quote to share it, or swipe and long-press for quick actions.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-sliders"></i></div><div><h4>Choose Which Quotes Show</h4><p>Pick which quotes your widgets and reminders show, like just your Favorites or by any field you've added <span class="pm">(Premium)</span>.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-mobile-screen"></i></div><div><h4>Home and Lock Screen Widgets</h4><p>Widgets show quotes from your own library and look right on tinted and clear Home Screens.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-bell"></i></div><div><h4>Daily Reminders</h4><p>Daily reminders at the times you choose, as many as you like, now with the author <span class="pm">(Premium)</span>.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-star"></i></div><div><h4>Organize Your Way</h4><p>Mark Favorites, organize quotes with your own fields <span class="pm">(Premium)</span>, then filter by any field and sort by newest, author or quote.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-share-from-square"></i></div><div><h4>Save From Other Apps</h4><p>Share a post, link or text from another app. Safari pages keep their link and title, and Instagram posts save the quote from the image.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-image"></i></div><div><h4>Add It, Then Share It</h4><p>Record, Paste or Photo, or write it yourself. Then share quotes as Story, Square or Wide images, with one tap to Instagram Stories.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-magnifying-glass"></i></div><div><h4>Spotlight, Siri and Shortcuts</h4><p>Find quotes by text or author from Spotlight and Siri, and save new quotes with a Shortcuts action.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-cloud"></i></div><div><h4>Backup and Sync</h4><p>Private sync across your devices with iCloud, with your sync status in Settings <span class="pm">(Premium)</span>.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-lock"></i></div><div><h4>Your Library, Your Data</h4><p>No account to create. Export your library to CSV or a backup file, and import it back <span class="pm">(Premium)</span>.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-book-open"></i></div><div><h4>Ready for iPhone Duo</h4><p>Quotify is ready for iPhone Duo.</p></div></div>
-  </div>
+<section class="manifesto" id="design">
+  <p class="big serif">The line you underlined. The one from the podcast. <em>The screenshot you'll never find again.</em></p>
+  <p class="small">Quotify keeps them all in one beautiful place, and brings them back when you need them most.</p>
 </section>
 
-<section class="plans">
-  <h2 class="sectionTitle serif">Free to start. Premium when you want more.</h2>
-  <div class="planGrid">
-    <div class="plan">
-      <div class="pname">Free</div><div class="pdesc">Everything you need to start a library</div>
-      <ul>
-        <li><i class="fas fa-check"></i>Smart Photo to Quote</li>
-        <li><i class="fas fa-check"></i>Home and Lock Screen widgets</li>
-        <li><i class="fas fa-check"></i>Record, Paste or Photo</li>
-        <li><i class="fas fa-check"></i>Mark Favorites</li>
-        <li><i class="fas fa-check"></i>Share quotes as images</li>
-        <li><i class="fas fa-check"></i>Search, filter and sort</li>
-      </ul>
+<div class="chapters">
+  <div class="chapter" id="photo">
+    <div class="panel g-brown photoFlow">
+      <div class="shot">
+        <picture>
+          <source srcset="assets/2/photo-walden-p99-960w.webp 960w, assets/2/photo-walden-p99.webp 1600w" type="image/webp" sizes="(max-width:768px) 90vw, 520px">
+          <img src="assets/2/photo-walden-p99.jpg" width="1600" height="995" alt="A photo of a page from Walden with one line highlighted" sizes="(max-width:768px) 90vw, 520px">
+        </picture>
+        <span class="tag"><i class="fas fa-camera"></i> Smart Photo to Quote</span>
+      </div>
+      <div class="arrow"><i class="fas fa-arrow-down"></i></div>
+      <div class="qrow">
+        <div class="q serif">Our life is frittered away by detail.</div>
+        <div class="by"><i class="fas fa-book-open"></i>Henry David Thoreau <em>· Walden</em></div>
+      </div>
+      <div class="chips"><span><i class="fas fa-camera"></i>Camera</span><span><i class="fas fa-image"></i>Photos</span><span><i class="fas fa-mobile-screen"></i>Screenshots</span></div>
     </div>
-    <div class="plan prem">
-      <div class="pname"><i class="fas fa-star"></i>Quotify Premium</div><div class="pdesc">Everything in Free, plus</div>
-      <ul>
-        <li><i class="fas fa-check"></i>Choose which quotes show, like just your Favorites</li>
-        <li><i class="fas fa-check"></i>Unlimited quotes</li>
-        <li><i class="fas fa-check"></i>Private backup and sync with iCloud</li>
-        <li><i class="fas fa-check"></i>Organize quotes with your own fields</li>
-        <li><i class="fas fa-check"></i>Daily quote reminders</li>
-        <li><i class="fas fa-check"></i>Import and export anytime</li>
-      </ul>
+    <div class="text">
+      <h3 class="serif">Snap a page. Keep the words.</h3>
+      <p class="body">Take or choose any photo, like a book page, a sign or a screenshot, and Quotify pulls the quote and author for you. No retyping.</p>
     </div>
   </div>
-</section>
 
-<section class="shots">
-  <h2 class="sectionTitle serif">Screenshots</h2>
-  <div class="shotRow">
-    <figure><img src="assets/2/appstore-01.jpg" alt="Save and Organize Your Favorite Quotes"><figcaption>Save and Organize Your Favorite Quotes</figcaption></figure>
-    <figure><img src="assets/2/appstore-03.jpg" alt="Add Quotes From Anywhere"><figcaption>Add Quotes From Anywhere</figcaption></figure>
-    <figure><img src="assets/2/appstore-04.jpg" alt="Share To Motivate Others"><figcaption>Share To Motivate Others</figcaption></figure>
-    <figure><img src="assets/2/appstore-05.jpg" alt="Save Quotes Your Way"><figcaption>Save Quotes Your Way</figcaption></figure>
-    <figure><img src="assets/2/appstore-06.jpg" alt="Find Any Quote Fast"><figcaption>Find Any Quote Fast</figcaption></figure>
-    <figure><img src="assets/2/appstore-07.jpg" alt="Choose Which Quotes Show"><figcaption>Choose Which Quotes Show</figcaption></figure>
+  <div class="chapter flip">
+    <div class="panel tall g-taupe">
+      <div class="phone homeCrop"><picture><source srcset="assets/2/screen-home-top-660w.webp 660w, assets/2/screen-home-top.webp 1320w" type="image/webp" sizes="(max-width:768px) 74vw, 380px"><img src="assets/2/screen-home-top.jpg" srcset="assets/2/screen-home-top-660w.jpg 660w, assets/2/screen-home-top.jpg 1320w" sizes="(max-width:768px) 74vw, 380px" width="1320" height="2190" alt="A Daily Quote notification above Quotify widgets" loading="lazy" decoding="async"></picture></div>
+    </div>
+    <div class="text">
+      <h3 class="serif">A quote a day, right where you look.</h3>
+      <p class="body">Home Screen and Lock Screen widgets show quotes from your own library and update the moment you add one. Daily reminders bring a quote to you, even on days you forget to look.</p>
+    </div>
+  </div>
+
+  <div class="chapter" id="favorites">
+    <div class="panel tall g-teal">
+      <div class="phone phRot"><picture><source srcset="assets/2/screen-rotation-660w.webp 660w, assets/2/screen-rotation.webp 1320w" type="image/webp" sizes="(max-width:768px) 70vw, 270px"><img src="assets/2/screen-rotation.jpg" srcset="assets/2/screen-rotation-660w.jpg 660w, assets/2/screen-rotation.jpg 1320w" sizes="(max-width:768px) 70vw, 270px" width="1320" height="2868" alt="Choosing Favorites as the quotes to show, with a live widget preview" loading="lazy" decoding="async"></picture></div>
+    </div>
+    <div class="text">
+      <h3 class="serif">Your favorites, on repeat.</h3>
+      <p class="body">Choose which quotes rotate through your widgets and reminders: everything, just your Favorites, or a single author. The widget preview updates as you pick.</p>
+    </div>
+  </div>
+</div>
+
+<div class="cards">
+  <div class="fcard">
+    <div class="panel g-green"><div class="phone phCard"><picture><source srcset="assets/2/screen-new-quote-660w.webp 660w, assets/2/screen-new-quote.webp 1320w" type="image/webp" sizes="(max-width:768px) 64vw, 250px"><img src="assets/2/screen-new-quote.jpg" srcset="assets/2/screen-new-quote-660w.jpg 660w, assets/2/screen-new-quote.jpg 1320w" sizes="(max-width:768px) 64vw, 250px" width="1320" height="2868" alt="The New Quote sheet: photo, paste, audio recording or write it yourself" loading="lazy" decoding="async"></picture></div></div>
+    <h3 class="serif">Save it the moment you hear it.</h3>
+    <p>Record, paste or add from a photo. Or share straight from Safari and Instagram.</p>
+  </div>
+  <div class="fcard">
+    <div class="panel g-orange shareArt">
+      <div class="card"><picture><source srcset="assets/2/share-card.webp" type="image/webp"><img src="assets/2/share-card.jpg" width="738" height="1305" alt="A Story share image of an Annie Dillard quote" loading="lazy" decoding="async"></picture></div>
+      <div class="bar"><img src="assets/2/share-bar.jpg" width="1260" height="230" alt="Save, Instagram and Share buttons" loading="lazy" decoding="async"></div>
+    </div>
+    <h3 class="serif">Share the lines that move you.</h3>
+    <p>Story, Square and Wide images, with one tap to Instagram Stories.</p>
+  </div>
+  <div class="fcard">
+    <div class="panel g-purple"><div class="phone phCard"><picture><source srcset="assets/2/screen-search-660w.webp 660w, assets/2/screen-search.webp 1320w" type="image/webp" sizes="(max-width:768px) 64vw, 250px"><img src="assets/2/screen-search.jpg" srcset="assets/2/screen-search-660w.jpg 660w, assets/2/screen-search.jpg 1320w" sizes="(max-width:768px) 64vw, 250px" width="1320" height="2868" alt="Searching the library for life" loading="lazy" decoding="async"></picture></div></div>
+    <h3 class="serif">Find any quote in seconds.</h3>
+    <p>Search, filter and sort by author, book or any field you add.</p>
+  </div>
+</div>
+
+<section class="wall">
+  <h2 class="serif">Your words. One collection.</h2>
+  <p class="sub">Books, talks, shows and friends, all in one library.</p>
+  <div class="wallGrid">
+    <div class="wq t2"><p class="serif">You may not control all the events that happen to you, but you can decide not to be reduced by them.</p><span>Maya Angelou<em>Letter to My Daughter</em></span></div>
+    <div class="wq"><p class="serif">Be curious, not judgmental.</p><span>Ted Lasso</span></div>
+    <div class="wq t2"><p class="serif">How we spend our days is, of course, how we spend our lives.</p><span>Annie Dillard<em>The Writing Life</em></span></div>
+    <div class="wq"><p class="serif">We suffer more often in imagination than in reality.</p><span>Seneca</span></div>
+    <div class="wq hideM"><p class="serif">Live in the future, then build what's missing.</p><span>Paul Graham</span></div>
+    <div class="wq hideM"><p class="serif">Our life is frittered away by detail.</p><span>Henry David Thoreau<em>Walden</em></span></div>
   </div>
 </section>
 
-<section class="cta">
-  <img class="icon" src="assets/2/appicon.png" alt="" width="96" height="96">
+<section class="more">
+  <h2 class="serif">And so much more</h2>
+  <div class="moreChips">
+    <span><i class="fas fa-lock"></i>Lock Screen widgets</span>
+    <span><i class="fas fa-star"></i>Favorites</span>
+    <span><i class="fas fa-microphone"></i>Speak a quote</span>
+    <span><i class="fab fa-safari"></i>Save from Safari</span>
+    <span><i class="fab fa-instagram"></i>Instagram posts to quotes</span>
+    <span><i class="fas fa-tags"></i>Your own fields</span>
+    <span><i class="fas fa-magnifying-glass"></i>Spotlight and Siri</span>
+    <span><i class="fas fa-layer-group"></i>Shortcuts</span>
+    <span><i class="fas fa-cloud"></i>iCloud sync</span>
+    <span><i class="fas fa-file-export"></i>Export to CSV</span>
+    <span><i class="fas fa-user-slash"></i>No account needed</span>
+    <span><i class="fas fa-text-height"></i>Text Size</span>
+    <span><i class="fas fa-tablet-screen-button"></i>iPhone and iPad</span>
+    <span><i class="fas fa-book-open"></i>Ready for iPhone Duo</span>
+  </div>
+</section>
+
+<section class="close">
+  <img class="icon" src="assets/2/appicon.png" width="512" height="512" alt="">
   <h2 class="serif">Get Quotify</h2>
-  <p>Free to download on the App Store, for iPhone and iPad.</p>
-  <a href="https://apps.apple.com/us/app/quotify-save-your-quotes/id1626937020"><img class="badge" src="assets/2/appstore.svg" alt="Download on the App Store" width="176" height="60"></a>
+  <p>Start your collection today. Your favorite words are waiting.</p>
+  <a class="badge" href="https://apps.apple.com/app/id1626937020"><img src="assets/2/appstore.svg" width="120" height="40" alt="Download on the App Store"></a>
+  <p class="fine">Free to download. Quotify Premium adds unlimited quotes, iCloud sync, daily reminders and more.</p>
 </section>
 
 <footer>
   <div class="footerIcons">
     <a href="https://x.com/jayhickey" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://instagram.com/jayhickey"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/jayhickey"><i class="fab fa-github"></i></a>
-    <a href="mailto:quotify@finalbits.io"><i class="fas fa-envelope"></i></a>
+    <a href="https://instagram.com/jayhickey" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/jayhickey" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="mailto:quotify@finalbits.io" aria-label="Email"><i class="fas fa-envelope"></i></a>
   </div>
-  <p class="footerText">Made by <a href="https://finalbits.io">Jay Hickey</a> in Seattle<br><br>© 2026 Final Bits</p>
+  <p class="footerText">Made by <a href="https://finalbits.io">Jay Hickey</a> in Seattle<br>© 2026 Final Bits</p>
   <div class="footerLinks">
     <a href="/quotify/privacy">Privacy Policy</a><a href="/quotify/terms">Terms of Use</a><a href="mailto:quotify@finalbits.io">Support</a><a href="/quotify/press/">Press Kit</a>
   </div>
