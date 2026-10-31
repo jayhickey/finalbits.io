@@ -23,6 +23,8 @@
 <meta name="twitter:image" content="https://finalbits.io/quotify/assets/2/og-image-1200x630.jpg">
 <meta name="twitter:image:alt" content="Quotify app icon and the headline Save and Organize Your Favorite Quotes on a teal gradient, beside two iPhones showing a quote library and the Favorites rotation screen.">
 <meta name="apple-itunes-app" content="app-id=1626937020">
+<link rel="icon" href="/quotify/assets/2/appicon.png">
+<link rel="apple-touch-icon" href="/quotify/assets/2/appicon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
 <style>
 :root{
@@ -44,7 +46,7 @@ html{font-size:62.5%}
 html,body{overflow-x:hidden}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:2rem;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
-.serif{font-family:ui-serif,Georgia,serif}
+.serif{font-family:ui-serif,"Iowan Old Style",Charter,Georgia,serif}
 .wrap{max-width:1170px;margin:0 auto;padding:0 15px}
 
 header{display:flex;align-items:center;justify-content:space-between;height:115px}
@@ -169,7 +171,7 @@ footer{text-align:center;padding:70px 0 70px}
   .hero p.lede{font-size:1.9rem;margin:16px auto 0}
   .badgeRow{justify-content:center;flex-direction:column;gap:10px;margin-top:26px}
   .badgeRow img{height:52px}
-  .heroArt{height:470px;margin-top:34px}
+  .heroArt{height:470px;margin-top:34px;overflow:hidden}
   .heroArt .p1{width:206px;top:10px}
   .heroArt .p2{width:168px;left:-2%;top:70px}
   .heroArt .p3{width:168px;right:-2%;top:70px}
@@ -220,12 +222,12 @@ footer{text-align:center;padding:70px 0 70px}
     <div class="newBadge"><i class="fas fa-star"></i>New: Smart Photo to Quote, free for everyone</div>
     <h2 class="serif">Save and Organize Your Favorite Quotes</h2>
     <p class="lede">Your personal library for the words that move you. Save quotes from books, articles, podcasts and conversations, then see them again every day on your Home Screen and Lock Screen.</p>
-    <div class="badgeRow"><img src="assets/2/appstore.png" alt="Download on the App Store"><span>For iPhone and iPad</span></div>
+    <div class="badgeRow"><a href="https://apps.apple.com/us/app/quotify-save-your-quotes/id1626937020"><img src="assets/2/appstore.png" alt="Download on the App Store" width="176" height="56"></a><span>For iPhone and iPad</span></div>
   </div>
   <div class="heroArt">
-    <div class="phone p2"><picture><source srcset="assets/2/screen-home.webp" type="image/webp"><img src="assets/2/screen-home.jpg" alt="Quotify widgets on a Home Screen"></picture></div>
-    <div class="phone p1"><picture><source srcset="assets/2/screen-library.webp" type="image/webp"><img src="assets/2/screen-library.jpg" alt="The Quotify library"></picture></div>
-    <div class="phone p3"><picture><source srcset="assets/2/screen-rotation.webp" type="image/webp"><img src="assets/2/screen-rotation.jpg" alt="Choosing which quotes show"></picture></div>
+    <div class="phone p2"><picture><source srcset="assets/2/screen-home-660w.webp 660w, assets/2/screen-home.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-home.jpg" srcset="assets/2/screen-home-660w.jpg 660w, assets/2/screen-home.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Quotify widgets on a Home Screen" width="1320" height="2868"></picture></div>
+    <div class="phone p1"><picture><source srcset="assets/2/screen-library-660w.webp 660w, assets/2/screen-library.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-library.jpg" srcset="assets/2/screen-library-660w.jpg 660w, assets/2/screen-library.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="The Quotify library" width="1320" height="2868"></picture></div>
+    <div class="phone p3"><picture><source srcset="assets/2/screen-rotation-660w.webp 660w, assets/2/screen-rotation.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-rotation.jpg" srcset="assets/2/screen-rotation-660w.jpg 660w, assets/2/screen-rotation.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Choosing which quotes show" width="1320" height="2868"></picture></div>
   </div>
 </section>
 
@@ -236,9 +238,9 @@ footer{text-align:center;padding:70px 0 70px}
   <div class="chapters">
     <div class="chapter">
       <div class="panel g-brown2 photoArt">
-        <img class="pg" src="assets/2/photo-walden-p99.jpg" alt="A photo of a page from Walden with a highlighted line">
+        <img class="pg" src="assets/2/photo-walden-p99.jpg" alt="A photo of a page from Walden with a highlighted line" width="1600" height="995" loading="lazy" decoding="async">
         <div class="arrow"><i class="fas fa-arrow-down"></i></div>
-        <div class="row"><img src="assets/2/saved-row.jpg" alt="The saved quote: Our life is frittered away by detail. Henry David Thoreau, Walden, p. 99"></div>
+        <div class="row"><img src="assets/2/saved-row.jpg" alt="The saved quote: Our life is frittered away by detail. Henry David Thoreau, Walden, p. 99" width="1276" height="188" loading="lazy" decoding="async"></div>
         <div class="chips"><span><i class="fas fa-camera"></i>Camera</span><span><i class="fas fa-image"></i>Photos</span><span><i class="fas fa-mobile-screen"></i>Screenshots</span></div>
       </div>
       <div class="text">
@@ -250,7 +252,7 @@ footer{text-align:center;padding:70px 0 70px}
     </div>
     <div class="chapter flip">
       <div class="panel g-brown">
-        <div class="phone homeCrop"><picture><source srcset="assets/2/screen-home-top.webp" type="image/webp"><img src="assets/2/screen-home-top.jpg" alt="A Daily Quote notification above Quotify widgets"></picture></div>
+        <div class="phone homeCrop"><picture><source srcset="assets/2/screen-home-top-660w.webp 660w, assets/2/screen-home-top.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-home-top.jpg" srcset="assets/2/screen-home-top-660w.jpg 660w, assets/2/screen-home-top.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="A Daily Quote notification above Quotify widgets" width="1320" height="2190" loading="lazy" decoding="async"></picture></div>
       </div>
       <div class="text">
         <h3 class="serif">Get Inspired Daily</h3>
@@ -260,7 +262,7 @@ footer{text-align:center;padding:70px 0 70px}
     </div>
     <div class="chapter">
       <div class="panel g-teal">
-        <div class="phone" style="width:262px;top:30px"><picture><source srcset="assets/2/screen-rotation.webp" type="image/webp"><img src="assets/2/screen-rotation.jpg" alt="Quotes to Show with Favorites selected and a live widget preview"></picture></div>
+        <div class="phone" style="width:262px;top:30px"><picture><source srcset="assets/2/screen-rotation-660w.webp 660w, assets/2/screen-rotation.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-rotation.jpg" srcset="assets/2/screen-rotation-660w.jpg 660w, assets/2/screen-rotation.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Quotes to Show with Favorites selected and a live widget preview" width="1320" height="2868" loading="lazy" decoding="async"></picture></div>
       </div>
       <div class="text">
         <span class="tag">New</span> <span class="tag ghost">Premium</span>
@@ -273,18 +275,18 @@ footer{text-align:center;padding:70px 0 70px}
 
   <div class="cards">
     <div class="fcard">
-      <div class="panel g-green"><div class="phone" style="width:250px;bottom:-12px"><picture><source srcset="assets/2/screen-new-quote.webp" type="image/webp"><img src="assets/2/screen-new-quote.jpg" alt="The New Quote sheet: photo, paste, audio recording or write it yourself"></picture></div></div>
+      <div class="panel g-green"><div class="phone" style="width:250px;bottom:-12px"><picture><source srcset="assets/2/screen-new-quote-660w.webp 660w, assets/2/screen-new-quote.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-new-quote.jpg" srcset="assets/2/screen-new-quote-660w.jpg 660w, assets/2/screen-new-quote.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="The New Quote sheet: photo, paste, audio recording or write it yourself" width="1320" height="2868" loading="lazy" decoding="async"></picture></div></div>
       <h3 class="serif">Save Quotes Your Way</h3><p>Record, paste or add from a photo</p>
     </div>
     <div class="fcard">
       <div class="panel g-orange shareArt">
-        <img class="card" src="assets/2/share-card.jpg" alt="A Story share image of a Thoreau quote">
-        <div class="bar"><img src="assets/2/share-bar.jpg" alt="Save, Instagram and Share buttons"></div>
+        <img class="card" src="assets/2/share-card.jpg" alt="A Story share image of a Thoreau quote" width="738" height="1305" loading="lazy" decoding="async">
+        <div class="bar"><img src="assets/2/share-bar.jpg" alt="Save, Instagram and Share buttons" width="1260" height="230" loading="lazy" decoding="async"></div>
       </div>
       <h3 class="serif">Share To Motivate Others</h3><p>One tap to Instagram Stories</p>
     </div>
     <div class="fcard">
-      <div class="panel g-purple"><div class="phone crop" style="width:250px;top:40px"><picture><source srcset="assets/2/screen-search.webp" type="image/webp"><img src="assets/2/screen-search.jpg" alt="Searching the library for life"></picture></div></div>
+      <div class="panel g-purple"><div class="phone crop" style="width:250px;top:40px"><picture><source srcset="assets/2/screen-search-660w.webp 660w, assets/2/screen-search.webp 1320w" type="image/webp" sizes="(max-width:768px) 60vw, 260px"><img src="assets/2/screen-search.jpg" srcset="assets/2/screen-search-660w.jpg 660w, assets/2/screen-search.jpg 1320w" sizes="(max-width:768px) 60vw, 260px" alt="Searching the library for life" width="1320" height="2868" loading="lazy" decoding="async"></picture></div></div>
       <h3 class="serif">Find Any Quote Fast</h3><p>Search, filter and sort by any field</p>
     </div>
   </div>
@@ -304,7 +306,7 @@ footer{text-align:center;padding:70px 0 70px}
     <div class="feature"><div class="ic"><i class="fas fa-magnifying-glass"></i></div><div><h4>Spotlight, Siri and Shortcuts</h4><p>Find quotes by text or author from Spotlight and Siri, and save new quotes with a Shortcuts action.</p></div></div>
     <div class="feature"><div class="ic"><i class="fas fa-cloud"></i></div><div><h4>Backup and Sync</h4><p>Private sync across your devices with iCloud, with your sync status in Settings <span class="pm">(Premium)</span>.</p></div></div>
     <div class="feature"><div class="ic"><i class="fas fa-lock"></i></div><div><h4>Your Library, Your Data</h4><p>No account to create. Export your library to CSV or a backup file, and import it back <span class="pm">(Premium)</span>.</p></div></div>
-    <div class="feature"><div class="ic"><i class="fas fa-book-open"></i></div><div><h4>Ready for iPhone Duo</h4><p>The new design works beautifully on iPhone Duo.</p></div></div>
+    <div class="feature"><div class="ic"><i class="fas fa-book-open"></i></div><div><h4>Ready for iPhone Duo</h4><p>Quotify is ready for iPhone Duo.</p></div></div>
   </div>
 </section>
 
@@ -349,10 +351,10 @@ footer{text-align:center;padding:70px 0 70px}
 </section>
 
 <section class="cta">
-  <img class="icon" src="assets/2/appicon.png" alt="">
+  <img class="icon" src="assets/2/appicon.png" alt="" width="96" height="96">
   <h2 class="serif">Get Quotify</h2>
   <p>Free to download on the App Store, for iPhone and iPad.</p>
-  <img class="badge" src="assets/2/appstore.png" alt="Download on the App Store">
+  <a href="https://apps.apple.com/us/app/quotify-save-your-quotes/id1626937020"><img class="badge" src="assets/2/appstore.png" alt="Download on the App Store" width="176" height="56"></a>
 </section>
 
 <footer>
